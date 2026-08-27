@@ -2,24 +2,32 @@ PUBLIC = tuple() #public - (e,n)
 PRIVATE = tuple() #private - (d,n)
 
 #*** MAIN ***
+
+def main():
+    text = input("Insert text to encrypt: ")
+    PUBLIC, PRIVATE = key_generator(2377, 7573)
+
+    print(PUBLIC)
+    print(PRIVATE)
+
+    encrypted_list = encrypt(text, PUBLIC)
+    print(encrypted_list)
+
+
 #def power()
 
 # *** KEY GENERATION ***
-def key_generator():
-    p = 2377
-    q = 7573
+def key_generator(p, q):
+    #p = 2377
+    #q = 7573
 
     n = p * q
-
     phi = (p - 1)*(q - 1)
 
     e = encryption_exponent(phi, n)
     d = decryption_exponent(phi, e)
 
-    PUBLIC = (e,n)
-    PRIVATE = (d,n)
-    print(PUBLIC)
-    print(PRIVATE)
+    return (e,n), (d,n)
 
 def encryption_exponent(phi, n):
     for e in range(2, n): # 1 < e < phi(N) and gcd(e, phi(N)) = 1
@@ -41,16 +49,25 @@ def gcd(a, b):
         b = temp % b
     return a
 
-key_generator()
 
 # *** ENCRYTPTION ***
 
 def encrypt(text, PUBLIC):
+    e, n = PUBLIC
     M = convert_text_to_ascii(text)
+    C = []
+    for num in M:
+        encrypted_num = pow(num, e, n)
+        C.append(encrypted_num)
+    return C
 
 def convert_text_to_ascii(text):
     M = []
     for l in text:
         if l == '\n':
-            return M
+            break
         M.append(ord(l))
+    return M
+
+
+main()
