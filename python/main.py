@@ -1,6 +1,10 @@
 PUBLIC = tuple() #public - (e,n)
 PRIVATE = tuple() #private - (d,n)
 
+#*** MAIN ***
+#def power()
+
+# *** KEY GENERATION ***
 def key_generator():
     p = 2377
     q = 7573
@@ -15,7 +19,7 @@ def key_generator():
     PUBLIC = (e,n)
     PRIVATE = (d,n)
     print(PUBLIC)
-    print(PRIVATE) 
+    print(PRIVATE)
 
 def encryption_exponent(phi, n):
     for e in range(2, n): # 1 < e < phi(N) and gcd(e, phi(N)) = 1
@@ -38,3 +42,15 @@ def gcd(a, b):
     return a
 
 key_generator()
+
+# *** ENCRYTPTION ***
+
+def encrypt(text, PUBLIC):
+    M = convert_text_to_ascii(text)
+
+def convert_text_to_ascii(text):
+    M = []
+    for l in text:
+        if l == '\n':
+            return M
+        M.append(ord(l))
