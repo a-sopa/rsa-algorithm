@@ -5,13 +5,19 @@ PRIVATE = tuple() #private - (d,n)
 
 def main():
     text = input("Insert text to encrypt: ")
-    PUBLIC, PRIVATE = key_generator(2377, 7573)
+    PUBLIC, PRIVATE = key_generator(2377, 7573) #2377, 7573
 
-    print(PUBLIC)
-    print(PRIVATE)
+    print(f"Public key: {PUBLIC}")
+    print(f"Private key: {PRIVATE}")
 
     encrypted_list = encrypt(text, PUBLIC)
     print(encrypted_list)
+
+    decrypted_list = decrypt(encrypted_list, PRIVATE)
+    #print(decrypted_list)
+
+    decrypted_str = list_to_str(decrypted_list)
+    print(f"Original Text: {decrypted_str}")
 
 
 #def power()
@@ -69,5 +75,21 @@ def convert_text_to_ascii(text):
         M.append(ord(l))
     return M
 
+def decrypt(enc_text, PRIVATE):
+    d, n = PRIVATE
+    original_message = []
+    #M = C^d mod(N)
+    for num in enc_text:
+        decrypted_num = pow(num, d, n)
+        decrypted_char = chr(decrypted_num)
+        original_message.append(decrypted_char)
+
+    return original_message
+
+def list_to_str(list):
+    final_str = ""
+    for elem in list:
+        final_str += elem
+    return final_str
 
 main()
