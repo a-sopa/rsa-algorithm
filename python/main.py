@@ -11,6 +11,7 @@ def main():
     print(f"Private key: {PRIVATE}")
 
     encrypted_list = encrypt(text, PUBLIC)
+
     print(encrypted_list)
 
     decrypted_list = decrypt(encrypted_list, PRIVATE)
@@ -20,18 +21,15 @@ def main():
     print(f"Original Text: {decrypted_str}")
 
 
-#def power()
-
 # *** KEY GENERATION ***
 def key_generator(p, q):
-    #p = 2377
-    #q = 7573
+    """ Auxiliar function that helps generating the keys necessary to both encryption and decryption.
+    """
+    n = p * q 
+    phi = (p - 1)*(q - 1) #Calculating phi(N)
 
-    n = p * q
-    phi = (p - 1)*(q - 1)
-
-    e = encryption_exponent(phi, n)
-    d = decryption_exponent(phi, e)
+    e = encryption_exponent(phi, n) #Calculating the encryption exponent (e)
+    d = decryption_exponent(phi, e) #Calculating the decryption exponent (d)
 
     return (e,n), (d,n)
 

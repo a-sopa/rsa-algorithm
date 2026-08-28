@@ -1,0 +1,2 @@
+#define PRIME1 2377
+#define PRIME2 7573
