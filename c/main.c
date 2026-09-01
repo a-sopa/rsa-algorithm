@@ -13,5 +13,7 @@ int main(){
     printf("Insert text: ");
     scanf("%s", message);
 
+    
+
     return 0;
 }
