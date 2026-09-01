@@ -1,5 +1,7 @@
 #include "my_library.h"
 
+// ***KEY GENERATION**
+
 int gcd(unsigned long long a, unsigned long long b){
     while (b != 0){
         int temp = a;
@@ -16,7 +18,7 @@ int encryption_exponent(unsigned long long phi, unsigned long long n){
     }
 }
 
-int decryption_exponent(int phi, int e){
+int decryption_exponent(unsigned long long phi, unsigned long long e){
     for (int d = 2; d < phi; d++){
         if (((d * e) % phi) == 1)
             return d;
