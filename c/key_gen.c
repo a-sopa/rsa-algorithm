@@ -16,6 +16,7 @@ int encryption_exponent(unsigned long long phi, unsigned long long n){
         if (gcd(phi, e) == 1)
             return e;
     }
+    return -1;
 }
 
 int decryption_exponent(unsigned long long phi, unsigned long long e){
@@ -23,6 +24,7 @@ int decryption_exponent(unsigned long long phi, unsigned long long e){
         if (((d * e) % phi) == 1)
             return d;
     }
+    return -1;
 }
 
 RSAKeys generate_keys(long int p, long int q){
