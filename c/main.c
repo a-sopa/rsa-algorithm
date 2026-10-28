@@ -7,8 +7,8 @@ int main(){
 
     char message[ARRAY_MAX];
 
-    printf("Public key: (%d,%d)\n", public_key.exponent, public_key.module);
-    printf("Private key: (%d,%d)\n", private_key.exponent, private_key.module);
+    printf("Public key: (%lld,%lld)\n", public_key.exponent, public_key.module);
+    printf("Private key: (%lld,%lld)\n", private_key.exponent, private_key.module);
 
     printf("Insert text: ");
     scanf("%s", message);

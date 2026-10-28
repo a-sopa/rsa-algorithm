@@ -5,6 +5,6 @@
 #include <stdlib.h>
 #include "constants.h"
 #include "structs.h"
-#include "key_gen.c"
+#include "key_gen.h"
 
 #endif
