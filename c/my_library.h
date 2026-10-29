@@ -6,5 +6,6 @@
 #include "constants.h"
 #include "structs.h"
 #include "key_gen.h"
+#include "encryption.h"
 
 #endif
