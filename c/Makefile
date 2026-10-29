@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -std=c17 -g
 
-SRCS = main.c key_gen.c encryption.c
+SRCS = main.c key_gen.c encryption.c decryption.c
 OBJS = $(SRCS:.c=.o)
 TARGET = main
 

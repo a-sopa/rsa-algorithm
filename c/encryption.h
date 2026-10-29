@@ -5,6 +5,6 @@
 
 unsigned long long power(unsigned long long base, unsigned long long exp, unsigned long long mod);
 
-int encrypt(char text[], KeyPair public, unsigned long long *cipher);
+int encrypt(char text[], KeyPair public_key, unsigned long long *cipher);
 
 #endif

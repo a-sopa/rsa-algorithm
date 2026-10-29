@@ -21,10 +21,10 @@ unsigned long long power(unsigned long long base, unsigned long long exp, unsign
     return result;
 }
 
-int encrypt(char text[], KeyPair public, unsigned long long *cipher){
+int encrypt(char text[], KeyPair public_key, unsigned long long *cipher){
     int i = 0;
     for (i = 0; text[i] != '\0'; i++){
-        cipher[i] = power((unsigned char)text[i], public.exponent, public.module);
+        cipher[i] = power((unsigned char)text[i], public_key.exponent, public_key.module);
     }
 
     return i;

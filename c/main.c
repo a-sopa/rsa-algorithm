@@ -24,5 +24,10 @@ int main(){
     }
     printf("\n");
 
+    char decrypted_message[ARRAY_MAX];
+    decrypt(cipher, len, private_key, decrypted_message);
+
+    printf("Decripted text: %s \n", decrypted_message);
+
     return 0;
 }

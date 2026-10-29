@@ -9,5 +9,6 @@
 #include "structs.h"
 #include "key_gen.h"
 #include "encryption.h"
+#include "decryption.h"
 
 #endif
